@@ -1,0 +1,42 @@
+.header {
+  background-color: #333;
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+}
+.header__logo{
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+.header__navbar-item {
+margin: 0;
+padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.header__navbar-items {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  margin: 0 0 0 5%;
+  list-style: none;
+}
+
+.header__navbar-items a {
+  transition: all ease-in-out 0.1s;
+
+  color: white;
+  text-decoration: none;
+  color: red;
+  text-align: center;
+}
+
+.header__navbar-items a:hover{
+  transition: all ease-in-out 0.1s;
+  color: gold;
+}
+.active{
+color: red;
+}

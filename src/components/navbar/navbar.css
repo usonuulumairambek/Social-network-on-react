@@ -1,0 +1,15 @@
+.navbar {
+    width: 20%;
+    border: 1px solid red;
+}
+
+.navbar__items {
+    margin: 5% 0 0 5%;
+}
+.navbar__items a {
+    color: seagreen;
+}
+
+.active{
+    color: gold;
+}
