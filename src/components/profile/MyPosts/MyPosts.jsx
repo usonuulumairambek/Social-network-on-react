@@ -1,18 +1,19 @@
 import React from "react";
 import Post from "./Post/Post";
+import { updateNewPostTextActionCreator } from "../../../redux/ProfileReducer";
+import { addPostActionCreator } from "../../../redux/ProfileReducer";
 const MyPosts = (props) => {
   let newPostElement = React.createRef();
 
-  function AddPost() {
-    let text = newPostElement.current.value;
-    // alert(text)
-    props.AddPost(text);
-    props.UpdateNewPost(" ");
-  }
   let OnPostChange = () => {
     let text = newPostElement.current.value;
-    props.UpdateNewPost(text);
+    props.dispath(updateNewPostTextActionCreator(text));
   };
+
+  let AddPost = () => {
+    props.dispath(addPostActionCreator());
+  };
+
   return (
     <div>
       Напишите что нибудь

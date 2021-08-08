@@ -3,17 +3,17 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import store from "./redux/state"
-let rerenderEntireTree = () => {
+import store from "./redux/store"
+export let rerenderEntireTree = () => {
   ReactDOM.render(
     <React.StrictMode>
-      <App appState={store.getState()} AddPost={store.AddPost} UpdateNewPost={store.UpdateNewPost} />
+      <App appState={store.getState()} dispath={store.dispath.bind(store)} store={store} />
     </React.StrictMode>,
     document.getElementById("root")
   );
 };
 rerenderEntireTree(store.getState());
-
+store.subscribe(rerenderEntireTree)
 
 // 
 reportWebVitals();

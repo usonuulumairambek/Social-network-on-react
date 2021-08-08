@@ -1,25 +1,30 @@
-import React, { useState } from "react";
-
-function Todo(props) {
-  // // let name = "Mairambek";
-  // let setAlert = (age) => {
-  //   console.log(age);
-  // };
-  // const [state, setstate] = useState("");
-  // let handlevalue = () => {
-  //   state = prompt("crjk");
-  //   let age = state
-  //   setAlert(age)
-
-  // };
-  let handlevalue = ()=>{
-    alert('вы успешно нажали на кнопку')
-  }
+import React from "react";
+import { rerenderEntireTree } from "../..";
+function Todo() {
+  let todoData = {
+    text: "",
+    setText(text1) {
+      text1 = this.text;
+    },
+  };
+  let onChangeText = (e) => {
+    let text1 = e.target.value;
+    todoData.setText(text1)
+  };
+  let onSubmit = () => {
+    rerenderEntireTree()
+  };
+  console.log(todoData.text);
   return (
     <div>
       <h1>Тодо лист без урокиов на ютуб</h1>
-      <input type="text" />
-      <button onClick={handlevalue}>Отправить</button>
+      <input onChange={onChangeText} type="text" />
+      <button onClick={onSubmit}>Отправить</button>
+      <div>
+        <p>
+          {todoData.text}
+        </p>
+      </div>
     </div>
   );
 }
