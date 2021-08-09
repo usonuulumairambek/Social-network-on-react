@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 /.pnp
+/bloknot.txt
 .pnp.js
 
 # testing

@@ -2,7 +2,6 @@ import React from "react";
 import "./post.css"
 const Post = (props) => {
   let w =  props.profilePage.posts.map((i, index) => {
- 
     return (
       <div className="post_items">
         <img src={i.src} alt="" />

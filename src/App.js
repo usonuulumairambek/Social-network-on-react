@@ -9,7 +9,7 @@ import Todo from "./components/todo/Todo";
 import Lk from "./components/lk/Lk";
 import Country from "./components/country/country";
 const App = (props) => {
-  
+  debugger;
   return (
     <BrowserRouter>
       <div>
@@ -28,7 +28,7 @@ const App = (props) => {
               render={() => (
                 <Profile
                   dispath={props.dispath}
-                  posts={props.appState.messages}
+                  posts={props.state.dialogsPage.messages}
                   profilePage={props.appState.profilePage}
                 />
               )}

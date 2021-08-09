@@ -1,12 +1,6 @@
 import DialogsReducer from "./DialogsReducer";
 import ProfileReducer from "./ProfileReducer";
 import SideBarReducer from "./SideBarReducer";
-
-// const ADD_POST = "ADD-POST";
-// const UPDATE_NEW_POST_TEXT = "UPDATE_NEW_POST_TEXT";
-// const UPDATE_NEW_MESSAGE_BODY = "UPDATE_NEW_MESSAGE_BODY";
-// const SEND_MESSAGE = "SEND_MESSAGE";
-
 let store = {
   _state: {
     profilePage: {
@@ -73,12 +67,9 @@ let store = {
     this._state.profilePage = ProfileReducer(this._state.profilePage, action);
     this._state.dialogsPage = DialogsReducer(this._state.dialogsPage, action);
     this._state.sideBar = SideBarReducer(this._state.sideBar, action);
-
     this._callSubscriber(this._state);
   },
 };
-
-
 
 export default store;
 // let store {
