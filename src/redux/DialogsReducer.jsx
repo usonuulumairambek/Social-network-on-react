@@ -23,7 +23,7 @@ const DialogsReducer = (state = initialState, action) => {
       state.newMessageBody = action.body;
       return state;
     case SEND_MESSAGE:
-      state.messages.push({ id: 1, message: state.newMessageBody });
+      state.messages.push({ id:  1, message: state.newMessageBody });
       state.newMessageBody = "";
       return state;
     default:
