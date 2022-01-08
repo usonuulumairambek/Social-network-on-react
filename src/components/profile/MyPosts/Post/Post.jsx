@@ -1,25 +1,18 @@
 import React from "react";
-import "./post.css"
+import "./post.css";
 const Post = (props) => {
-  let w =  props.profilePage.posts.map((i, index) => {
-    return (
-      <div className="post_items">
-        <img src={i.src} alt="" />
-        <span>{index+1}</span><span> </span>
-        <span>{i.message}</span>
-      </div>
-    );  
-  })
+  let data = props.profilePage;
   return (
-    <div className="posts">
-      {/* {props.posts.map((p) => { */}
-      <div>
-        <div>
-         {w}
-        </div>
-      </div>
-
-      {/* })} */}
+    <div className="post_items">
+      {data.map((i) => {
+        return (
+          <div className="post">
+            <img src={i.src} alt="" />
+            <span className="post__text" >{i.message}</span>
+            <h2>Лайк: {i.likecount}</h2>
+          </div>
+        );
+      })}
     </div>
   );
 };

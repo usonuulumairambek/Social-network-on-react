@@ -5,6 +5,7 @@
 /.pnp
 /txt
 .pnp.js
+/Блокнот
 
 # testing
 /coverage

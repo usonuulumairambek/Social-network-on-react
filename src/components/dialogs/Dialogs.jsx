@@ -1,62 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import {sendMessageCreator} from "./../../redux/DialogsReducer"
-import {UpdateNewMessageBodyCreator} from "./../../redux/DialogsReducer"
-
 import "./dialogs.css";
-// const GialogsItems = (props) => {
-//   let path = "/dialogs/" + props.id;
-//   return (
-//     <div className="dialog">
-//       <NavLink to={path}>{props.dialogs.name}</NavLink>
-//     </div>
-//   );
-// };
-// const Message = (props) => {
-//   console.log(props.store);
-//   return (
+import { UpdateNewMessageBodyCreator } from "./../../redux/DialogsReducer";
+import { sendMessageCreator } from "./../../redux/DialogsReducer";
+const DialogsItems = () => {
+  let path = "/dialogs/" + 12;
+  return (
+    <div className="dialog">
+      <NavLink to={path}>dsds</NavLink>
+      <NavLink to={path}>ds</NavLink>
+    </div>
+  );
+};
+const Dialogs = (props) => {
+  const [header, setheader] = useState(true);
+  let newMessageBody = props.dialogsPage.newMessageBody;
+  let state = props.dialogsPage.messages;
 
-//   );
-// };
-
-const Dialogs = (store) => {
-  let state = store.store;
-  let onTextChange = (e) => {
-    let body = e.target.value;
-    state.dispath(UpdateNewMessageBodyCreator(body));
+  let setHeader = () => {
+    setheader(header ? false : true);
   };
-  let onSendMessageClick = (e) => {
-    state.dispath(sendMessageCreator());
+
+  let onMessageChange = (e) => {
+    let body = e.target.value;
+    props.dispatch(UpdateNewMessageBodyCreator(body));
+  };
+  let onSendMessageClick = () => {
+    props.dispatch(sendMessageCreator());
   };
   return (
-    <div className="dialogs">
+    <div className={header ? "dialogs" : "dialogs-black"}>
       <div className="dialogs__items">
-        <div>
-          {state.getState().dialogsPage.dialogs.map((item) => {
-            return (
-              <div>
-                <NavLink to={item.patch}>{item.name}</NavLink>
-              </div>
-            );
-          })}
-        </div>
+        <DialogsItems />
       </div>
       <div className="messages">
-        {/* <Message message={props.messages} /> */}
-        <div className="message">
-          {state.getState().dialogsPage.messages.map((item) => {
-            return (
-              <div>
-                <p>{item.message}</p>
-              </div>
-            );
-          })}
-        </div>
+        {state.map((e) => {
+          return <div className="message">{e.message}</div>;
+        })}
         <div>
           <div>
             <textarea
-              value={state.getState().dialogsPage.dialogs.newMessageBody}
-              onChange={onTextChange}
+              value={newMessageBody}
+              onChange={onMessageChange}
               type="text"
             />
           </div>
@@ -64,6 +49,7 @@ const Dialogs = (store) => {
             <button type="submit" onClick={onSendMessageClick}>
               Добавить
             </button>
+            <button onClick={setHeader}>Изменить цвет dialogs</button>
           </div>
         </div>
       </div>

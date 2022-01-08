@@ -1,30 +1,11 @@
-import React from "react";
-import { rerenderEntireTree } from "../..";
+import React, { useState } from "react";
+
 function Todo() {
-  let todoData = {
-    text: "",
-    setText(text1) {
-      text1 = this.text;
-    },
-  };
-  let onChangeText = (e) => {
-    let text1 = e.target.value;
-    todoData.setText(text1)
-  };
-  let onSubmit = () => {
-    rerenderEntireTree()
-  };
-  console.log(todoData.text);
+  const [auth, setauth] = useState(false);
   return (
     <div>
-      <h1>Тодо лист без урокиов на ютуб</h1>
-      <input onChange={onChangeText} type="text" />
-      <button onClick={onSubmit}>Отправить</button>
-      <div>
-        <p>
-          {todoData.text}
-        </p>
-      </div>
+      <p>{auth ? "Привет, ты зашел" : "Привет, ты еще не зашел"}</p>
+      <button onClick={()=> setauth(true)}>{auth ? "Войти" : "Выйти"}</button>
     </div>
   );
 }

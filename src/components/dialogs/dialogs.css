@@ -1,12 +1,25 @@
 .dialogs {
-    border: 1px solid red;
     display: flex;
     width: 200%;
     justify-content: space-between;
+    transition: all 2s;
 }
-.dialogs__items{
+
+.dialogs-black {
+    transition: all 2s;
+    background-color: black;
+
+}
+
+.dialog {
+    display: flex;
+    flex-direction: column;
+}
+
+.dialogs__items {
     padding: 10px;
 }
-.messages{
+
+.messages {
     padding: 10px;
 }

@@ -1,18 +1,24 @@
-// 1 React from "react";
-// // import axios from "axios";
-// // let data = {
-// // name: 'mairambek',
-// // age: 20
-// // }
-// // let url = 'https://jsonplaceholder.typicode.com/todos/1'
-// // axios.post(url, data).then((response)=>{
-// //   return response
-// // })
-// //  return (
-// //     <div>
-// // sddad
-// //     </div>
-// //   );
-// // }
+import React, { useRef } from "react";
 
-// // export default Country;
+function Country(props) {
+  // textInput должна быть объявлена здесь, чтобы реф мог иметь к ней доступ
+  const textInput = useRef(null);
+
+  function handleClick() {
+    textInput.current.focus();
+  }
+
+  return (
+    <div>
+      <input
+        type="text"
+        ref={textInput} />
+      <input
+        type="button"
+        value="Фокус на поле для ввода текста"
+        onClick={handleClick}
+      />
+    </div>
+  );
+}
+export default Country;
