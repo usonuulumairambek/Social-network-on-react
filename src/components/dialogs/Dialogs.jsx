@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import "./dialogs.css";
 import { UpdateNewMessageBodyCreator } from "./../../redux/DialogsReducer";
-import { sendMessageCreator } from "./../../redux/DialogsReducer";
+// import { sendMessageCreator } from "./../../redux/DialogsReducer";
 const DialogsItems = () => {
   let path = "/dialogs/" + 12;
   return (
@@ -13,28 +13,23 @@ const DialogsItems = () => {
   );
 };
 const Dialogs = (props) => {
-  const [header, setheader] = useState(true);
-  let newMessageBody = props.dialogsPage.newMessageBody;
-  let state = props.dialogsPage.messages;
-
-  let setHeader = () => {
-    setheader(header ? false : true);
-  };
+  debugger;
+  let newMessageBody = props.state;
 
   let onMessageChange = (e) => {
     let body = e.target.value;
     props.dispatch(UpdateNewMessageBodyCreator(body));
   };
   let onSendMessageClick = () => {
-    props.dispatch(sendMessageCreator());
+    props.sendMessage();
   };
   return (
-    <div className={header ? "dialogs" : "dialogs-black"}>
+    <div className={"dialogs"}>
       <div className="dialogs__items">
         <DialogsItems />
       </div>
       <div className="messages">
-        {state.map((e) => {
+        {props.dialogsPage.message.map((e) => {
           return <div className="message">{e.message}</div>;
         })}
         <div>
@@ -49,7 +44,6 @@ const Dialogs = (props) => {
             <button type="submit" onClick={onSendMessageClick}>
               Добавить
             </button>
-            <button onClick={setHeader}>Изменить цвет dialogs</button>
           </div>
         </div>
       </div>

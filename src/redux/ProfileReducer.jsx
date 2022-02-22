@@ -25,6 +25,8 @@ const ProfileReducer = (state = initialState, action) => {
       return state;
     case constants.UPDATE_NEW_POST_TEXT:
       state.NewPosttext = action.newPost;
+      // alert(state.NewPosttext)
+      // алерт покадызееват undefined
       return state;
     case constants.UPDATE_NEW_LIKE:
       state.likecount = action.LikeCount;

@@ -1,22 +1,16 @@
 import React from "react";
 import Post from "./Post/Post";
-import { updateNewPostTextActionCreator } from "../../../redux/ProfileReducer";
-import { addPostActionCreator } from "../../../redux/ProfileReducer";
-// import { ipdateNewLikeActionCreator } from "../../../redux/ProfileReducer";
+import { Input } from "semantic-ui-react";
+
 const MyPosts = (props) => {
-  debugger
   let state = props.posts;
   let newPostElement = React.createRef();
-  // let LikeCount = React.createRef();
-  // let postsElements = props.dispatch().map(() => {});
-  let AddPost = () => {
-    props.dispatch(addPostActionCreator());
-    newPostElement.current.value = "";
+  let onAddPost = () => {
+    props.AddPost();
   };
   let OnPostChange = () => {
     let text = newPostElement.current.value;
-
-    // props.dispatch(updateNewPostTextActionCreator(text));
+    props.updateNewPostText(text);
   };
   // let onLikeChange = ()=>{
   //   let Like = LikeCount.current.value
@@ -28,15 +22,16 @@ const MyPosts = (props) => {
     <div>
       Напишите что нибудь
       <div>
-        <textarea
+        <Input
           value={props.newPostText}
           ref={newPostElement}
           onChange={OnPostChange}
           type="text"
-        ></textarea>{" "}
+          placeholder="Search..."
+        />
         <br />
         {/* <input type="text" ref={LikeCount} onChange={onLikeChange} /> */}
-        <button onClick={AddPost} type="submit">
+        <button onClick={onAddPost} type="submit">
           Добавить
         </button>
       </div>
