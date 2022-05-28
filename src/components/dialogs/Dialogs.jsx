@@ -1,8 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./dialogs.css";
-import { UpdateNewMessageBodyCreator } from "./../../redux/DialogsReducer";
-// import { sendMessageCreator } from "./../../redux/DialogsReducer";
 const DialogsItems = () => {
   let path = "/dialogs/" + 12;
   return (
@@ -13,12 +11,11 @@ const DialogsItems = () => {
   );
 };
 const Dialogs = (props) => {
-  debugger;
-  let newMessageBody = props.state;
-
+  let newMessageBody = props.dialogsPage.newMessageBody;
+  let state = props.dialogsPage
   let onMessageChange = (e) => {
     let body = e.target.value;
-    props.dispatch(UpdateNewMessageBodyCreator(body));
+    props.UpdateNewMessageBody(body);
   };
   let onSendMessageClick = () => {
     props.sendMessage();
@@ -29,7 +26,7 @@ const Dialogs = (props) => {
         <DialogsItems />
       </div>
       <div className="messages">
-        {props.dialogsPage.message.map((e) => {
+        {props.dialogsPage.messages.map((e) => {
           return <div className="message">{e.message}</div>;
         })}
         <div>

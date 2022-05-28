@@ -1,11 +1,16 @@
-import React from "react";
-// import { NavLink } from "react-router-dom";
-import "./dialogs.css";
-import { UpdateNewMessageBodyCreator } from "../../redux/DialogsReducer";
-import { sendMessageCreator } from "../../redux/DialogsReducer";
+// import React from "react";
+// import "./dialogs.css";
+// import { UpdateNewMessageBodyCreator } from "../../redux/ucer";
+// import { sendMessageCreator } from "../../redux/ucer";
+// import Dialogs from "./Dialogs";
+// import { StoreContext } from "react-redux" ;
 import Dialogs from "./Dialogs";
-import StoreContext from "../../StoreContext";
-const DialogsContainer = (props) => {
+import React from "react";
+import { UpdateNewMessageBodyCreator } from "./../../redux/DialogsReducer";
+import { sendMessageCreator } from "../../redux/DialogsReducer";
+import { StoreContext } from "./../../redux/redux-store";
+
+const DialogsContainer = () => {
   return (
     <StoreContext.Consumer>
       {(store) => {
@@ -18,7 +23,7 @@ const DialogsContainer = (props) => {
         };
         return (
           <Dialogs
-            UpdateNewMessageBodyCreator={onMessageChange}
+            UpdateNewMessageBody={onMessageChange}
             sendMessage={onSendMessageClick}
             dialogsPage={state}
           />

@@ -16,7 +16,7 @@ let initialState = {
   ],
   newMessageBody: "",
 };
-const DialogsReducer = (state = initialState, action) => {
+const ucer = (state = initialState, action) => {
   switch (action.type) {
     case UPDATE_NEW_MESSAGE_BODY:
       state.newMessageBody = action.body;
@@ -24,6 +24,7 @@ const DialogsReducer = (state = initialState, action) => {
     case SEND_MESSAGE:
       state.messages.push({ id: 1, message: state.newMessageBody });
       state.newMessageBody = "";
+
       return state;
     default:
       return state;
@@ -36,4 +37,4 @@ export let UpdateNewMessageBodyCreator = (body) => ({
   type: UPDATE_NEW_MESSAGE_BODY,
   body: body,
 });
-export default DialogsReducer;
+export default ucer;

@@ -1,18 +1,19 @@
 import React from "react";
-import { updateNewPostTextActionCreator } from "../../../redux/ProfileReducer";
-// import { addPostActionCreator } from "../../../redux/ProfileReducer";
 import MyPosts from "./MyPosts";
 import StoreContext from "../../../StoreContext";
-// import store from "../../../redux/store";
-// import { ipdateNewLikeActionCreator } from "../../../redux/ProfileReducer";
-const MyPostsContainer = (props) => {
+import { updateNewPostTextActionCreator } from "../../../redux/ProfileReducer";
+import { addPostActionCreator } from "../../../redux/ProfileReducer";
+const MyPostsContainer = () => {
   return (
     <StoreContext.Consumer>
       {(store) => {
         let state = store.getState();
         let AddPost = () => {
           let text = store.getState().profilePage.NewPosttext;
-          store.dispatch(updateNewPostTextActionCreator(text));
+          let newtext = text.split(" ").join(' | ');
+          console.log(newtext);
+          store.dispatch(addPostActionCreator(text));
+          //
         };
         let OnPostChange = (text) => {
           let action = updateNewPostTextActionCreator(text);

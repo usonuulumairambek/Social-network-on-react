@@ -3,13 +3,14 @@ import Post from "./Post/Post";
 import { Input } from "semantic-ui-react";
 
 const MyPosts = (props) => {
+  // debugger;
   let state = props.posts;
   let newPostElement = React.createRef();
   let onAddPost = () => {
     props.AddPost();
   };
   let OnPostChange = () => {
-    let text = newPostElement.current.value;
+    let text = newPostElement.current.inputRef.current.value;
     props.updateNewPostText(text);
   };
   // let onLikeChange = ()=>{

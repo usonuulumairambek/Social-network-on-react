@@ -22,4 +22,11 @@
 
 .messages {
     padding: 10px;
+    transition: all 2s ease-in-out;
+
+}
+
+.message {
+    transition: all 2s ease-in-out;
+    color:  red;
 }

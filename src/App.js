@@ -9,7 +9,6 @@ import Lk from "./components/lk/Lk";
 import Country from "./components/country/country";
 import DialogsContainer from "./components/dialogs/DialogsContainer";
 const App = () => {
-  // const MyContext = React.createContext(defaultValue);
   return (
     <div>
       <Header />

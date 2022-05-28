@@ -6,7 +6,7 @@ let Profile = (props) => {
   return (
     <div className="profile">
       <ProfileInfo />
-        <MyPostsContainer />
+      <MyPostsContainer />
     </div>
   );
 };
